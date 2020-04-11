@@ -34,8 +34,9 @@ public class EmployerController {
         }
 
         employerRepository.save(newEmployer);
-        model.addAttribute("employers", employerRepository.findAll());
-        return "redirect:";
+//        model.addAttribute("employers", employerRepository.findAll());
+//        return "redirect:";
+        return "employers/view";
     }
 
     @GetMapping("view/{employerId}")
