@@ -34,7 +34,7 @@ public class SkillController {
             }
 
             skillRepository.save(newSkill);
-//            model.addAttribute("skills", skillRepository.findAll());
+            model.addAttribute("skills", skillRepository.findAll());
 //            return "redirect:";
             return "skills/view";
         }
@@ -45,7 +45,7 @@ public class SkillController {
 
             if(optSkill.isPresent()) {
                 Skill skill = (Skill) optSkill.get();
-                model.addAttribute("skill", skill);
+                model.addAttribute("skill ", skill);
                 return "skills/view";
             } else {
                 return "redirect:../";
