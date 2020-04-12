@@ -46,7 +46,6 @@ public class HomeController {
         model.addAttribute("employers", employerRepository.findAll());
         model.addAttribute("skills", skillRepository.findAll());
 
-
         return "add";
     }
 
@@ -60,27 +59,26 @@ public class HomeController {
             return "add";
         }
 
-
-
         // part 3
         Optional<Employer> varName = employerRepository.findById(employerId);
         Employer employer = varName.get();
         newJob.setEmployer(employer);
-        jobRepository.save(newJob);
 
         //part 4: updating HomeController, again
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         newJob.setSkills(skillObjs);
-
+        jobRepository.save(newJob);
 
         return "view";
     }
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
+        Optional <Job> result = jobRepository.findById(jobId);
+        Job job = result.get();
 
-        model.addAttribute("job", jobRepository.findById(jobId));
-        return "view/{jobId}";
+        model.addAttribute("job", job);
+        return "view";
     }
 
 

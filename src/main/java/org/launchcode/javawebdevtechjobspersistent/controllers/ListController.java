@@ -44,9 +44,9 @@ public class ListController {
     @RequestMapping("")
     public String list(Model model) {
 
-        model.addAttribute("employer", employerRepository.findAll());
+        model.addAttribute("employers", employerRepository.findAll());
         model.addAttribute("job", jobRepository.findAll());
-        model.addAttribute("skill", skillRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll()); // displays list of skills in "View Jobs By Category"
 
         return "list";
     }
