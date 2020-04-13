@@ -23,5 +23,7 @@ write a query to return a list of the names and descriptions of all skills that 
 jobs in alphabetical order. If a skill does not have a job listed, it should not be included in
 the results of this query.
 
-
+SELECT skill.id, skill.name, skill.description FROM techjobs_persistent.job_skills
+JOIN techjobs_persistent.skill ON job_skills.skills_id = skill.id
+ORDER BY  skill.name
 
